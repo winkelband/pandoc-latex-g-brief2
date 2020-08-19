@@ -10,7 +10,7 @@ In addition to the original LaTeX template you can also modify some field names.
 
 * [Pandoc](https://pandoc.org/)
 * [LaTeX](https://www.latex-project.org/)
-* [g-brief – Letter document class]([https://ctan.org/pkg/g-brief](https://ctan.org/pkg/g-brief)
+* [g-brief – Letter document class](https://ctan.org/pkg/g-brief)
 
 Move the [LaTeX template file](./g-brief2.latex)
 into your Pandoc template directory, e.g.:
@@ -33,15 +33,15 @@ A letter written in Markdown can be simple as:
 ---
 author: Erika Musterfrau
 internet:
-	line1: mail@example.org
-return-address-envelope:
-	- Erika Musterfrau
-	- Ottostraße 13a
-	- 12345 Berlin
+  line1: mail@example.org
+return-address-envelope:  
+  - Erika Musterfrau
+  - Ottostraße 13a
+  - 12345 Berlin
 address:
-	- Alex Mustermensch
-	- Musterhausener Str. 11
-	- 54321 Konz
+  - Alex Mustermensch
+  - Musterhausener Str. 11
+  - 54321 Konz
 
 subject: Mustersüßigkeiten
 
@@ -56,7 +56,7 @@ Werfen Sie einen Blick in meinen aktuellen Produktkatalog –
 ich sende Ihnen gerne Kostproben zu.
 ```
 
-For a more comprehensive example look into [./example/letter.md](link).
+For a more comprehensive example look into [./example/letter.md](./example/letter.md).
 
 ![IMAGE](./example/letter.png)
 
