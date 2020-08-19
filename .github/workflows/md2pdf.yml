@@ -8,6 +8,8 @@ jobs:
     steps:
       - run: mkdir -p ~/.pandoc/templates
       - run: wget https://raw.githubusercontent.com/winkelband/pandoc-latex-g-brief2/master/g-brief2.latex -P ~/.pandoc/templates/
+      - run: mkdir -p templates
+      - run: wget https://raw.githubusercontent.com/winkelband/pandoc-latex-g-brief2/master/g-brief2.latex -P templates/
       - run: ls ~/.pandoc/templates
       - uses: docker://pandoc/latex:2.10
         with:
