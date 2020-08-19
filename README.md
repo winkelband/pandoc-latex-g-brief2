@@ -56,7 +56,7 @@ Werfen Sie einen Blick in meinen aktuellen Produktkatalog –
 ich sende Ihnen gerne Kostproben zu.
 ```
 
-For a more comprehensive example look into [./example/letter.md](./example/letter.md).
+For a more comprehensive example look into [example/letter.md](./example/letter.md).
 
 ![IMAGE](./example/letter.png)
 
