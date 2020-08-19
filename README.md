@@ -21,13 +21,13 @@ wget https://raw.githubusercontent.com/winkelband/pandoc-latex-g-brief2/master/g
 ```
 
 Compile your letter written in Markdown
-into PDF with the following command:
+to PDF with the following command:
 
 `pandoc --standalone --template g-brief2 --pdf-engine xelatex --from markdown letter.md -o letter.pdf`
 
 ## Example
 
-A letter written in Markdown can be simple as:
+A letter written in Markdown can be as simple as:
 
 ```yaml
 ---
@@ -80,9 +80,9 @@ address: # Address of the recipient.
   - # string
 cc: # Additional recipients (names).
   - # string
-return-address-envelope: # Keep the lines short (get concatenated with "·").
+return-address-envelope: # Keep the lines short (single lines get concatenated with " · ").
   - # string
-return-address-footer: # Address in the footer. Can hold more information than address bar in envelope.
+return-address-footer: # Address in the footer. Can contain more information than address bar in envelope.
   line1: # string
   line3: 
   line2: 
@@ -131,7 +131,7 @@ envelopemarks: # bool (default: false)
 foldmarks: # bool (default: false)
 punchmark: # bool (default: false)
 
-lang: # using code according to [IETF BCP 47 tags](https://tools.ietf.org/html/bcp47)
+lang: # Use code according to [IETF BCP 47 tags](https://tools.ietf.org/html/bcp47).
 otherlangs: # multiple dictionaries
 
 title-meta: # string (when title omitted)
