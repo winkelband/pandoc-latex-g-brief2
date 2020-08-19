@@ -10,4 +10,4 @@ jobs:
       - run: wget https://raw.githubusercontent.com/winkelband/pandoc-latex-g-brief2/master/g-brief2.latex -P ~/.pandoc/templates/
       - uses: docker://pandoc/latex:2.10
         with:
-          args: "--standalone --data-dir ~/.pandoc/templates--template g-brief2 --pdf-engine xelatex --from markdown ./example/letter.md -o letter.pdf"
+          args: "--standalone --data-dir ~/.pandoc/templates --template g-brief2 --pdf-engine xelatex --from markdown ./example/letter.md -o letter.pdf"
