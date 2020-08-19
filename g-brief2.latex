@@ -1,0 +1,172 @@
+%%
+% This is the g-brief2 pandoc LaTeX template.
+%
+% This LaTeX template relies mainly on the document class g-brief2.
+%
+% For usage information and examples visit:
+% https://github.com/winkelband/pandoc-latex-g-brief2
+%%
+
+\documentclass[
+$if(fontsize)$
+    $fontsize$,
+$else$
+    11pt,
+$endif$
+$if(lang)$
+    $babel-lang$,
+$endif$
+]{g-brief2}
+
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0
+    \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+    \usepackage[utf8]{inputenc}
+    % Non-breaking space, thin space.
+    \DeclareUnicodeCharacter{00A0}{~}
+    \DeclareUnicodeCharacter{2009}{\thinspace}
+    \usepackage[final,protrusion=true,expansion=true]{microtype}
+    \usepackage{lmodern,textcomp}
+    \usepackage{fixltx2e}
+    \usepackage{cmap}
+\else
+
+$if(lang)$
+\ifxetex
+    \usepackage{polyglossia}
+    \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+$for(polyglossia-otherlangs)$
+    \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\else
+    \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+$if(babel-newcommands)$
+    $babel-newcommands$
+$endif$
+\fi
+$endif$
+
+$if(palatino)$
+    % Fonttype Palatino
+    \usepackage{palatino}
+$endif$
+
+\usepackage{hyperref}
+\hypersetup{
+$if(title-meta)$
+    pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+    pdfauthor={$author-meta$},
+$endif$
+$if(lang)$
+    pdflang={$lang$},
+$endif$
+$if(subject)$
+    pdfsubject={$subject$},
+$endif$
+$if(keywords)$
+    pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+    hidelinks,
+    breaklinks=true,
+    pdfcreator={LaTeX via pandoc with the g-brief2 template}
+}
+
+% Just apply value to \meinzeichentext instead.
+%\unserzeichen
+%\renewcommand{\unserzeichentext}{{\footnotesize\textsc{}}}
+$if(recipient-refsign.field)$
+    \renewcommand{\ihrzeichentext}{{\footnotesize\textsc{$recipient-refsign.field$}}}
+$endif$
+$if(recipient-letter.field)$
+    \renewcommand{\ihrschreibentext}{{\footnotesize\textsc{$recipient-letter.field$}}}
+$endif$
+$if(sender-refsign.field)$
+    \renewcommand{\meinzeichentext}{\footnotesize\textsc{$sender-refsign.field$}}
+$endif$
+
+$if(trendlines)$
+    \trennlinien
+$endif$
+$if(envelopemarks)$
+    \fenstermarken
+$endif$
+$if(foldmarks)$
+    \faltmarken
+$endif$
+$if(punchmark)$
+    \lochermarke
+$endif$
+
+\RetourAdresse      {$for(return-address-envelope)$$return-address-envelope$$sep$ · $endfor$}
+
+\Name				{$author$}
+\NameZeileA		    {$name.line1$}
+\NameZeileB		    {$name.line2$}
+\NameZeileC		    {$name.line3$}
+\NameZeileD		    {$name.line4$}
+\NameZeileE		    {$name.line5$}
+\NameZeileF		    {$name.line6$}
+\NameZeileG		    {$name.line7$}
+
+\AdressZeileA		{$return-address-footer.line1$}
+\AdressZeileB		{$return-address-footer.line2$}
+\AdressZeileC		{$return-address-footer.line3$}
+\AdressZeileD		{$return-address-footer.line4$}
+\AdressZeileE		{$return-address-footer.line5$}
+\AdressZeileF		{$return-address-footer.line6$}
+
+\TelefonZeileA		{$phone.line1$}
+\TelefonZeileB		{$phone.line2$}
+\TelefonZeileC		{$phone.line3$}
+\TelefonZeileD		{$phone.line4$}
+\TelefonZeileE		{$phone.line5$}
+\TelefonZeileF		{$phone.line6$}
+
+\InternetZeileA		{$internet.line1$}
+\InternetZeileB		{$internet.line2$}
+\InternetZeileC		{$internet.line3$}
+\InternetZeileD		{$internet.line4$}
+\InternetZeileE		{$internet.line5$}
+\InternetZeileF		{$internet.line6$}
+
+\BankZeileA			{$banking.line1$}
+\BankZeileB			{$banking.line2$}
+\BankZeileC			{$banking.line3$}
+\BankZeileD			{$banking.line4$}
+\BankZeileE			{$banking.line5$}
+\BankZeileF			{$banking.line6$}
+
+\Postvermerk		{$postalnote$}
+
+\Adresse            {$for(address)$$address$$sep$ \\ $endfor$}
+
+% Remove header above date.
+\renewcommand		{\datumtext}{}
+$if(date)$
+    \Datum			{$date$}
+$else$
+    \Datum			{\today}
+$endif$
+
+\IhrZeichen		   	{$recipient-refsign.value$}
+\IhrSchreiben		{$recipient-letter.value$}
+\MeinZeichen		{$sender-refsign.value$}
+
+\Betreff			{$subject$}
+\Anrede				{$opening$}
+\Gruss				{$closing$}{1cm}
+\Unterschrift		{\name}
+
+\Anlagen            {$for(enclosures)$$enclosures$$sep$ \\ $endfor$}
+\Verteiler			{$for(cc)$$cc$$sep$ \\ $endfor$}
+
+
+\begin{document}
+	\begin{g-brief}
+		
+        $body$
+		
+	\end{g-brief}
+\end{document}
